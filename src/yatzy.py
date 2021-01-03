@@ -1,24 +1,4 @@
 class Yatzy:
-
-    @staticmethod
-    def chance(d1, d2, d3, d4, d5):
-        total = 0
-        total += d1
-        total += d2
-        total += d3
-        total += d4
-        total += d5
-        return total
-
-    @staticmethod
-    def yatzy(dice):
-        counts = [0]*(len(dice)+1)
-        for die in dice:
-            counts[die-1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
-        return 0
     
     @staticmethod
     def ones( d1,  d2,  d3,  d4,  d5):
@@ -36,7 +16,7 @@ class Yatzy:
 
         return sum
     
-
+    
     @staticmethod
     def twos( d1,  d2,  d3,  d4,  d5):
         sum = 0
@@ -51,7 +31,7 @@ class Yatzy:
         if (d5 == 2):
              sum += 2
         return sum
-    
+
     @staticmethod
     def threes( d1,  d2,  d3,  d4,  d5):
         s = 0
@@ -67,14 +47,6 @@ class Yatzy:
              s += 3
         return s
     
-
-    def __init__(self, d1, d2, d3, d4, _5):
-        self.dice = [0]*5
-        self.dice[0] = d1
-        self.dice[1] = d2
-        self.dice[2] = d3
-        self.dice[3] = d4
-        self.dice[4] = _5
     
     def fours(self):
         sum = 0
@@ -92,7 +64,7 @@ class Yatzy:
                 s = s + 5
         return s
     
-
+    
     def sixes(self):
         sum = 0
         for at in range(len(self.dice)): 
@@ -114,6 +86,7 @@ class Yatzy:
                 return (6-at)*2
         return 0
     
+
     @staticmethod
     def two_pair( d1,  d2,  d3,  d4,  d5):
         counts = [0]*6
@@ -132,7 +105,20 @@ class Yatzy:
         if (n == 2):
             return score * 2
         else:
-            return 0
+            return 
+        
+    @staticmethod
+    def three_of_a_kind( d1,  d2,  d3,  d4,  d5):
+        t = [0]*6
+        t[d1-1] += 1
+        t[d2-1] += 1
+        t[d3-1] += 1
+        t[d4-1] += 1
+        t[d5-1] += 1
+        for i in range(6):
+            if (t[i] >= 3):
+                return (i+1) * 3
+        return 0
     
     @staticmethod
     def four_of_a_kind( _1,  _2,  d3,  d4,  d5):
@@ -147,23 +133,10 @@ class Yatzy:
                 return (i+1) * 4
         return 0
     
-
-    @staticmethod
-    def three_of_a_kind( d1,  d2,  d3,  d4,  d5):
-        t = [0]*6
-        t[d1-1] += 1
-        t[d2-1] += 1
-        t[d3-1] += 1
-        t[d4-1] += 1
-        t[d5-1] += 1
-        for i in range(6):
-            if (t[i] >= 3):
-                return (i+1) * 3
-        return 0
     
 
     @staticmethod
-    def smallStraight( d1,  d2,  d3,  d4,  d5):
+    def small_straight( d1,  d2,  d3,  d4,  d5):
         tallies = [0]*6
         tallies[d1-1] += 1
         tallies[d2-1] += 1
@@ -180,7 +153,7 @@ class Yatzy:
     
 
     @staticmethod
-    def largeStraight( d1,  d2,  d3,  d4,  d5):
+    def large_straight( d1,  d2,  d3,  d4,  d5):
         tallies = [0]*6
         tallies[d1-1] += 1
         tallies[d2-1] += 1
@@ -197,7 +170,7 @@ class Yatzy:
     
 
     @staticmethod
-    def fullHouse( d1,  d2,  d3,  d4,  d5):
+    def full_house( d1,  d2,  d3,  d4,  d5):
         tallies = []
         _2 = False
         i = 0
@@ -228,3 +201,32 @@ class Yatzy:
             return _2_at * 2 + _3_at * 3
         else:
             return 0
+    
+    @staticmethod
+    def chance(d1, d2, d3, d4, d5):
+        total = 0
+        total += d1
+        total += d2
+        total += d3
+        total += d4
+        total += d5
+        return total
+
+    @staticmethod
+    def yatzy(dice):
+        counts = [0]*(len(dice)+1)
+        for die in dice:
+            counts[die-1] += 1
+        for i in range(len(counts)):
+            if counts[i] == 5:
+                return 50
+        return 0
+    
+
+    def __init__(self, d1, d2, d3, d4, _5):
+        self.dice = [0]*5
+        self.dice[0] = d1
+        self.dice[1] = d2
+        self.dice[2] = d3
+        self.dice[3] = d4
+        self.dice[4] = _5
