@@ -50,9 +50,12 @@ def test_fives():
 
 
 def test_sixes():
-        assert 0 == Yatzy(4,4,4,5,5).sixes()
-        assert 6 == Yatzy(4,4,6,5,5).sixes()
-        assert 18 == Yatzy(6,5,6,6,5).sixes()
+        assert Yatzy.sixes(4,4,4,5,5) == 0
+        assert Yatzy.sixes(4,4,6,5,5) == 6
+        assert Yatzy.sixes(6,5,6,6,5) == 18
+        assert Yatzy.sixes(6,6,6,6,5) == 24
+        assert Yatzy.sixes(6,6,6,6,6) == 30
+        assert Yatzy.sixes(2,3,2,6,6) == 12
 
 
 def test_one_pair():
