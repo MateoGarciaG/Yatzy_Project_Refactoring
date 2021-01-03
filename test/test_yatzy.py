@@ -125,11 +125,11 @@ def test_large_straight():
 
 
 def test_full_house():
-        assert Yatzy.fullHouse(6,2,2,2,6) == 18
-        assert Yatzy.fullHouse(2,3,4,5,6) == 0
-        assert Yatzy.fullHouse(2,2,2,5,5) == 16
-        assert Yatzy.fullHouse(1,3,3,1,1) == 9
-        assert Yatzy.fullHouse(6,6,5,5,6) == 28
+        assert Yatzy.full_house(6,2,2,2,6) == 18
+        assert Yatzy.full_house(2,3,4,5,6) == 0
+        assert Yatzy.full_house(2,2,2,5,5) == 16
+        assert Yatzy.full_house(1,3,3,1,1) == 9
+        assert Yatzy.full_house(6,6,5,5,6) == 28
 
 def test_chance_score():
 
