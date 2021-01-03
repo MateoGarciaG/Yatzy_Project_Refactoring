@@ -136,9 +136,13 @@ def test_chance_score():
         assert Yatzy.chance(1,3,1,5,6) == 16
 
 
-def test_yatzy_scores_50():
-        expected = 50
-        actual = Yatzy.yatzy([4,4,4,4,4])
-        assert expected == actual
-        assert 50 == Yatzy.yatzy([6,6,6,6,6])
-        assert 0 == Yatzy.yatzy([6,6,6,6,3])
+def test_yatzy_scores():
+        score = 50
+        
+        assert Yatzy.yatzy([4,4,4,4,4]) == score
+        assert Yatzy.yatzy([6,6,6,6,6]) == score
+        assert Yatzy.yatzy([6,6,6,6,3]) == 0
+        assert Yatzy.yatzy([1,1,1,1,1]) == score
+        assert Yatzy.yatzy([2,2,2,2,2]) == score
+        assert Yatzy.yatzy([3,3,3,3,3]) == score
+        assert Yatzy.yatzy([5,5,5,5,5]) == score
