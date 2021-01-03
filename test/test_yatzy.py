@@ -110,11 +110,14 @@ def test_small_straight():
 
 
 def test_large_straight():
-        assert Yatzy.largeStraight(6,2,3,4,5) == 20
-        assert Yatzy.largeStraight(2,3,4,5,6) == 20
-        assert Yatzy.largeStraight(3,5,2,6,4) == 20
-        assert Yatzy.largeStraight(6,2,5,3,4) == 20
-        assert Yatzy.largeStraight(5,6,3,4,2) == 20
+        
+        score = 20
+        
+        assert Yatzy.largeStraight(6,2,3,4,5) == score
+        assert Yatzy.largeStraight(2,3,4,5,6) == score
+        assert Yatzy.largeStraight(3,5,2,6,4) == score
+        assert Yatzy.largeStraight(6,2,5,3,4) == score
+        assert Yatzy.largeStraight(5,6,3,4,2) == score
         assert Yatzy.largeStraight(1,2,2,4,5) == 0
 
 
