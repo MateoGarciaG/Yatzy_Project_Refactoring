@@ -89,11 +89,15 @@ def test_three_of_a_kind():
         assert Yatzy.three_of_a_kind(4,1,4,1,4) == 12
 
 
-def test_four_of_a_knd():
-        assert 12 == Yatzy.four_of_a_kind(3,3,3,3,5)
-        assert 20 == Yatzy.four_of_a_kind(5,5,5,4,5)
-        assert 12 == Yatzy.four_of_a_kind(3,3,3,3,3)
-        assert 0  == Yatzy.four_of_a_kind(3,3,3,2,1)
+def test_four_of_a_kind():
+        assert Yatzy.four_of_a_kind(3,3,3,3,5) == 12
+        assert Yatzy.four_of_a_kind(5,5,5,4,5) == 20
+        assert Yatzy.four_of_a_kind(3,3,3,3,3) == 12
+        assert Yatzy.four_of_a_kind(3,3,3,2,1) == 0
+        assert Yatzy.four_of_a_kind(1,1,3,1,1) == 4
+        assert Yatzy.four_of_a_kind(2,2,2,5,2) == 8
+        assert Yatzy.four_of_a_kind(3,6,6,6,6) == 24
+        
 
 
 def test_smallStraight():
