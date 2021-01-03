@@ -115,12 +115,15 @@ def test_large_straight():
         assert Yatzy.largeStraight(3,5,2,6,4) == 20
         assert Yatzy.largeStraight(6,2,5,3,4) == 20
         assert Yatzy.largeStraight(5,6,3,4,2) == 20
-        assert Yatzy.largeStraight(6,5,4,3,1) == 0
+        assert Yatzy.largeStraight(1,2,2,4,5) == 0
 
 
-def test_fullHouse():
-        assert 18 == Yatzy.fullHouse(6,2,2,2,6)
-        assert 0 == Yatzy.fullHouse(2,3,4,5,6)
+def test_full_house():
+        assert Yatzy.fullHouse(6,2,2,2,6) == 18
+        assert Yatzy.fullHouse(2,3,4,5,6) == 0
+        assert Yatzy.fullHouse(2,2,2,5,5) == 16
+        assert Yatzy.fullHouse(1,3,3,1,1) == 9
+        assert Yatzy.fullHouse(6,6,5,5,6) == 28
 
 def test_chance_scores_sum_of_all_dice():
         expected = 15
