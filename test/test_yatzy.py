@@ -101,11 +101,14 @@ def test_four_of_a_kind():
 
 
 def test_small_straight():
-        assert Yatzy.smallStraight(1,2,3,4,5) == 15
-        assert Yatzy.smallStraight(2,3,4,5,1) == 15
-        assert Yatzy.smallStraight(1,2,5,4,3) == 15
-        assert Yatzy.smallStraight(2,1,3,5,4) == 15
-        assert Yatzy.smallStraight(5,4,3,2,1) == 15
+        
+        score = 15
+        
+        assert Yatzy.smallStraight(1,2,3,4,5) == score
+        assert Yatzy.smallStraight(2,3,4,5,1) == score
+        assert Yatzy.smallStraight(1,2,5,4,3) == score
+        assert Yatzy.smallStraight(2,1,3,5,4) == score
+        assert Yatzy.smallStraight(5,4,3,2,1) == score
         assert Yatzy.smallStraight(1,6,6,5,1) == 0
 
 
