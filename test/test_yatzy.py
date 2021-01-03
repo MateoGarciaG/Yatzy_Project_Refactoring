@@ -14,8 +14,11 @@ def test_ones():
 
 
 def test_twos():
-        assert 4 == Yatzy.twos(1,2,3,2,6)
-        assert 10 == Yatzy.twos(2,2,2,2,2)
+        assert Yatzy.twos(1,2,3,2,6) == 4
+        assert Yatzy.twos(2,2,2,2,2) == 10
+        assert Yatzy.twos(3,2,2,2,5) == 6
+        assert Yatzy.twos(2,2,2,2,3) == 8
+        assert Yatzy.twos(4,1,2,6,3) == 2
 
 
 def test_threes():

@@ -23,6 +23,8 @@ yatzy.py:
 6. Por lo dicho anteriormente en el punto 1 de este apartado, no habría necesidad de tener el constructor de la Clase Yatzy.
 
 
+Se han hecho cambios en el nombre de rutina a: test_ones(), también se ha organizado los ASSERTS y por ultimo se han agregado dos casos test más
+
 ## Preguntas de Reflexión:
 
 ### ¿Cuánto código duplicado hay en tu solución? ¿Y en tus casos test?
