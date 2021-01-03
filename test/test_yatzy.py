@@ -80,9 +80,13 @@ def test_two_pair():
 
 
 def test_three_of_a_kind():
-        assert 9 == Yatzy.three_of_a_kind(3,3,3,4,5)
-        assert 15 == Yatzy.three_of_a_kind(5,3,5,4,5)
-        assert 9 == Yatzy.three_of_a_kind(3,3,3,3,5)
+        assert Yatzy.three_of_a_kind(3,3,3,4,5) == 9
+        assert Yatzy.three_of_a_kind(5,3,5,4,5) == 15
+        assert Yatzy.three_of_a_kind(3,3,3,3,5) == 9
+        assert Yatzy.three_of_a_kind(2,3,2,2,5) == 6
+        assert Yatzy.three_of_a_kind(6,3,5,6,6) == 18
+        assert Yatzy.three_of_a_kind(1,1,3,1,5) == 3
+        assert Yatzy.three_of_a_kind(4,1,4,1,4) == 12
 
 
 def test_four_of_a_knd():
