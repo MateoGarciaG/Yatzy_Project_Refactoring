@@ -109,10 +109,13 @@ def test_small_straight():
         assert Yatzy.smallStraight(1,6,6,5,1) == 0
 
 
-def test_largeStraight():
-        assert 20 == Yatzy.largeStraight(6,2,3,4,5)
-        assert 20 == Yatzy.largeStraight(2,3,4,5,6)
-        assert 0 == Yatzy.largeStraight(1,2,2,4,5)
+def test_large_straight():
+        assert Yatzy.largeStraight(6,2,3,4,5) == 20
+        assert Yatzy.largeStraight(2,3,4,5,6) == 20
+        assert Yatzy.largeStraight(3,5,2,6,4) == 20
+        assert Yatzy.largeStraight(6,2,5,3,4) == 20
+        assert Yatzy.largeStraight(5,6,3,4,2) == 20
+        assert Yatzy.largeStraight(6,5,4,3,1) == 0
 
 
 def test_fullHouse():
