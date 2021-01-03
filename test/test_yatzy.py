@@ -27,13 +27,17 @@ def test_threes():
         assert Yatzy.threes(2,3,3,3,3) == 12
         assert Yatzy.threes(2,1,3,1,4) == 3
         assert Yatzy.threes(2,3,3,3,5) == 9
-        assert Yatzy.threes(2,5,6,1,1) == 0 
+        assert Yatzy.threes(2,5,6,1,1) == 0
+        assert Yatzy.threes(3,3,3,3,3) == 15
 
 
 def test_fours():
-        assert 12 == Yatzy(4,4,4,5,5).fours()
-        assert 8 == Yatzy(4,4,5,5,5).fours()
-        assert 4 == Yatzy(4,5,5,5,5).fours()
+        assert Yatzy.fours(4,4,4,5,5) == 12
+        assert Yatzy.fours(4,4,5,5,5) == 8
+        assert Yatzy.fours(4,5,5,3,6) == 4
+        assert Yatzy.fours(4,4,5,4,4) == 16
+        assert Yatzy.fours(4,4,4,4,4) == 20
+        assert Yatzy.fours(1,5,3,2,6) == 0
 
 
 def test_fives():
