@@ -125,11 +125,15 @@ def test_full_house():
         assert Yatzy.fullHouse(1,3,3,1,1) == 9
         assert Yatzy.fullHouse(6,6,5,5,6) == 28
 
-def test_chance_scores_sum_of_all_dice():
-        expected = 15
-        actual = Yatzy.chance(2,3,4,5,1)
-        assert expected == actual
-        assert 16 == Yatzy.chance(3,3,4,5,1)
+def test_chance_score():
+
+        assert Yatzy.chance(2,3,4,5,1) == 15
+        assert Yatzy.chance(3,3,4,5,1) == 16
+        assert Yatzy.chance(1,3,2,5,5) == 16
+        assert Yatzy.chance(1,1,1,5,1) == 9
+        assert Yatzy.chance(2,2,4,5,2) == 15
+        assert Yatzy.chance(6,6,4,6,6) == 28
+        assert Yatzy.chance(1,3,1,5,6) == 16
 
 
 def test_yatzy_scores_50():
