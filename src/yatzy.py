@@ -1,18 +1,12 @@
 class Yatzy:
     
     @staticmethod
-    def ones( d1,  d2,  d3,  d4,  d5):
+    def ones(*dices):
         sum = 0
-        if (d1 == 1):
-            sum += 1
-        if (d2 == 1):
-            sum += 1
-        if (d3 == 1):
-            sum += 1
-        if (d4 == 1):
-            sum += 1
-        if (d5 == 1): 
-            sum += 1
+        
+        for dice in dices:
+            if dice == 1:
+                sum += 1
 
         return sum
     
@@ -47,7 +41,7 @@ class Yatzy:
              s += 3
         return s
     
-    
+    @staticmethod
     def fours(self):
         sum = 0
         for at in range(5):
@@ -55,7 +49,7 @@ class Yatzy:
                 sum += 4
         return sum
     
-
+    @staticmethod
     def fives(self):
         s = 0
         i = 0
@@ -64,7 +58,7 @@ class Yatzy:
                 s = s + 5
         return s
     
-    
+    @staticmethod
     def sixes(self):
         sum = 0
         for at in range(len(self.dice)): 
