@@ -177,11 +177,13 @@ class Yatzy:
         return total
 
     @staticmethod
-    def yatzy(dice):
-        counts = [0]*(len(dice)+1)
-        for die in dice:
-            counts[die-1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
-        return 0
+    def yatzy(*dices):
+        score = 0
+        
+        for dice in dices:
+            if dices.count(dice) == 5:
+                score = 50
+                break
+            else:
+                return score
+        return score
