@@ -32,3 +32,4 @@ Si, decidí crear dos branch: feature-tests. La cual era especificamente para re
 Donde primero empece con la branch feature-tests para seguir el proceso de TDD antes de pasar a refactorizar o mirar el código de la Class Yatzy. Cuando ya tenía refactorizada ambas branchs, decidí unirlas mediante git merge a la branch develop, y de allí observar si todo funcionaba, todo funcionaba más allá de algún que otro error por una variable en un método al momento de refactorizar, pero no mucho más.
 ### ¿Cómo decidiste el orden en el que implementar los casos test? 
 Decidí que el orden de los casos test debían ser desde aquellos puntajes del 1-6, para despues avualuar los casos test de los pair, straight, full_house, etc. Donde están dividos en sus propias funciones test según el método a evaluar en los casos test. Y dentro de cada función poner los casos test más comunes según el total de puntos que podría dar, no según la posición de los dados sino solamente la puntuación.
+
