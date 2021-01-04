@@ -170,13 +170,10 @@ class Yatzy:
         return score
     
     @staticmethod
-    def chance(d1, d2, d3, d4, d5):
+    def chance(*dices):
         total = 0
-        total += d1
-        total += d2
-        total += d3
-        total += d4
-        total += d5
+        for dice in dices:
+            total += dice
         return total
 
     @staticmethod
@@ -188,7 +185,3 @@ class Yatzy:
             if counts[i] == 5:
                 return 50
         return 0
-
-
-if __name__ == "__main__":
-    print(Yatzy.full_house(6,2,2,2,6))
