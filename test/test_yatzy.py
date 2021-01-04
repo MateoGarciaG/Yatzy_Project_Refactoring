@@ -32,30 +32,30 @@ def test_threes():
 
 
 def test_fours():
-        assert Yatzy.fours(4,4,4,5,5) == 12
-        assert Yatzy.fours(4,4,5,5,5) == 8
-        assert Yatzy.fours(4,5,5,3,6) == 4
-        assert Yatzy.fours(4,4,5,4,4) == 16
-        assert Yatzy.fours(4,4,4,4,4) == 20
-        assert Yatzy.fours(1,5,3,2,6) == 0
+        assert Yatzy(4,4,4,5,5).fours() == 12
+        assert Yatzy(4,4,5,5,5).fours() == 8
+        assert Yatzy(4,5,5,3,6).fours() == 4
+        assert Yatzy(4,4,5,4,4).fours() == 16
+        assert Yatzy(4,4,4,4,4).fours() == 20
+        assert Yatzy(1,5,3,2,6).fours() == 0
 
 
 def test_fives():
-        assert Yatzy.fives(4,4,4,5,5) == 10
-        assert Yatzy.fives(4,4,5,5,5) == 15
-        assert Yatzy.fives(4,5,5,5,5) == 20
-        assert Yatzy.fives(5,5,5,5,5) == 25
-        assert Yatzy.fives(4,5,3,2,6) == 5
-        assert Yatzy.fives(4,1,2,6,4) == 0
+        assert Yatzy(4,4,4,5,5).fives() == 10
+        assert Yatzy(4,4,5,5,5).fives() == 15
+        assert Yatzy(4,5,5,5,5).fives() == 20
+        assert Yatzy(5,5,5,5,5).fives() == 25
+        assert Yatzy(4,5,3,2,6).fives() == 5
+        assert Yatzy(4,1,2,6,4).fives() == 0
 
 
 def test_sixes():
-        assert Yatzy.sixes(4,4,4,5,5) == 0
-        assert Yatzy.sixes(4,4,6,5,5) == 6
-        assert Yatzy.sixes(6,5,6,6,5) == 18
-        assert Yatzy.sixes(6,6,6,6,5) == 24
-        assert Yatzy.sixes(6,6,6,6,6) == 30
-        assert Yatzy.sixes(2,3,2,6,6) == 12
+        assert Yatzy(4,4,4,5,5).sixes() == 0
+        assert Yatzy(4,4,6,5,5).sixes() == 6
+        assert Yatzy(6,5,6,6,5).sixes() == 18
+        assert Yatzy(6,6,6,6,5).sixes() == 24
+        assert Yatzy(6,6,6,6,6).sixes() == 30
+        assert Yatzy(2,3,2,6,6).sixes() == 12
 
 
 def test_one_pair():
