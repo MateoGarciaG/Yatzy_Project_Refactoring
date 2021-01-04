@@ -162,15 +162,12 @@ class Yatzy:
         full_house = 5
         for dice in tuple(dices):
             if dices.count(dice) == 3 or dices.count(dice) == 2:
+                score += dice
                 full_house -= 1
-                if full_house == 3:
-                    score += dice*2
-                elif full_house == 0:
-                    score += dice*3
+
         if full_house >= 1:
             score = 0
-
-        
+            
         return score
     
     @staticmethod
@@ -189,3 +186,7 @@ class Yatzy:
             return score
 
         return score
+
+
+if __name__ == "__main__":
+    print(Yatzy.full_house(6,6,5,5,6))
