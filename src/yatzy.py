@@ -61,8 +61,7 @@ class Yatzy:
     def score_pair(*dices):
         
         score = 0
-        dices = list(dices)
-        dices.sort(reverse=True)
+        dices = sorted(dices, reverse=True)
         
         for dice in tuple(dices):
             if dices.count(dice) == 2:
@@ -77,8 +76,7 @@ class Yatzy:
     @staticmethod
     def two_pair(*dices):
         
-        dices = list(dices)
-        dices.sort(reverse=True)
+        dices = sorted(dices, reverse=True)
         score = 0
         total_two_pair = 4
         for dice in tuple(dices):
@@ -96,8 +94,7 @@ class Yatzy:
     def three_of_a_kind(*dices):
         
         score = 0
-        dices = list(dices)
-        dices.sort(reverse=True)
+        dices = sorted(dices, reverse=True)
         for dice in tuple(dices):
             if dices.count(dice) >= 3:
                 score = dice*3
@@ -109,35 +106,34 @@ class Yatzy:
     
     
     @staticmethod
-    def four_of_a_kind( _1,  _2,  d3,  d4,  d5):
-        tallies = [0]*6
-        tallies[_1-1] += 1
-        tallies[_2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-        for i in range(6):
-            if (tallies[i] >= 4):
-                return (i+1) * 4
-        return 0
+    def four_of_a_kind(*dices):
+        
+        score = 0
+        dices = sorted(dices, reverse=True)
+        for dice in tuple(dices):
+            if dices.count(dice) >= 4:
+                score = dice*4
+                break
+            else:
+                continue
+                
+        return score
     
     
 
     @staticmethod
-    def small_straight( d1,  d2,  d3,  d4,  d5):
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-        if (tallies[0] == 1 and
-            tallies[1] == 1 and
-            tallies[2] == 1 and
-            tallies[3] == 1 and
-            tallies[4] == 1):
-            return 15
-        return 0
+    def small_straight(*dices):
+        straight = 15
+        score = 0
+        
+        for dice in dices:
+            score += dice
+        
+        if score == straight:
+            score = 15
+        else:
+            score = 0
+        return score
     
 
     @staticmethod
@@ -209,4 +205,5 @@ class Yatzy:
             if counts[i] == 5:
                 return 50
         return 0
+
 
