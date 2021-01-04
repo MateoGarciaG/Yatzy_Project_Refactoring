@@ -179,11 +179,9 @@ class Yatzy:
     @staticmethod
     def yatzy(*dices):
         score = 0
-        
-        for dice in dices:
-            if dices.count(dice) == 5:
-                score = 50
-                break
-            else:
-                return score
+        if dices.count(dices[0]) == 5:
+            score = 50
+        else:
+            return score
+
         return score
