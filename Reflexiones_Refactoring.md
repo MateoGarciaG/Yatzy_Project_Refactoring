@@ -1,7 +1,7 @@
 # REFLEXIONES YATZY KATA REFACTORING
 
 ## Reflexión General:
-
+Git Merge from feature-tests to develop Se ha realizado git Merge para pasar el contenido de feature-tests hacia develop
 ## Code Smells Identificados:
 Los Code Smells que he identificado en este kata y de los cuales realice refactorización y de acuerdo a la CheckList fueron:
 
