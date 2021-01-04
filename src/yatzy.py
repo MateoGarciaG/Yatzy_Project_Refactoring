@@ -130,27 +130,25 @@ class Yatzy:
             score += dice
         
         if score == straight:
-            score = 15
+            score = straight
         else:
             score = 0
         return score
     
 
     @staticmethod
-    def large_straight( d1,  d2,  d3,  d4,  d5):
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-        if (tallies[1] == 1 and
-            tallies[2] == 1 and
-            tallies[3] == 1 and
-            tallies[4] == 1
-            and tallies[5] == 1):
-            return 20
-        return 0
+    def large_straight(*dices):
+        straight = 20
+        score = 0
+        
+        for dice in dices:
+            score += dice
+        
+        if score == straight:
+            score = straight
+        else:
+            score = 0
+        return score
     
 
     @staticmethod
