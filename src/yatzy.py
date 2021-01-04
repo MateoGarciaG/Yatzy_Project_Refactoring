@@ -152,37 +152,22 @@ class Yatzy:
     
 
     @staticmethod
-    def full_house( d1,  d2,  d3,  d4,  d5):
-        tallies = []
-        _2 = False
-        i = 0
-        _2_at = 0
-        _3 = False
-        _3_at = 0
+    def full_house(*dices):
+        dices = sorted(dices, reverse=True)
+        score = 0
+        full_house = 5
+        for dice in tuple(dices):
+            if dices.count(dice) == 3 or dices.count(dice) == 2:
+                full_house -= 1
+                if full_house == 3:
+                    score += dice*2
+                elif full_house == 0:
+                    score += dice*3
+        if full_house >= 1:
+            score = 0
 
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-
-        for i in range(6):
-            if (tallies[i] == 2): 
-                _2 = True
-                _2_at = i+1
-            
-
-        for i in range(6):
-            if (tallies[i] == 3): 
-                _3 = True
-                _3_at = i+1
-            
-
-        if (_2 and _3):
-            return _2_at * 2 + _3_at * 3
-        else:
-            return 0
+        
+        return score
     
     @staticmethod
     def chance(d1, d2, d3, d4, d5):
@@ -205,3 +190,5 @@ class Yatzy:
         return 0
 
 
+if __name__ == "__main__":
+    print(Yatzy.full_house(6,2,2,2,6))

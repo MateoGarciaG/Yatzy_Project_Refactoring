@@ -3,11 +3,11 @@ from src.yatzy import Yatzy
 # These unit tests can be run using the py.test framework
 # available from http://pytest.org/
 
-# def test_chance_scores_sum_of_all_dice():
-#         expected = 15
-#         actual = Yatzy.chance(2,3,4,5,1)
-#         assert expected == actual
-#         assert 16 == Yatzy.chance(3,3,4,5,1)
+def test_chance_scores_sum_of_all_dice():
+        expected = 15
+        actual = Yatzy.chance(2,3,4,5,1)
+        assert expected == actual
+        assert 16 == Yatzy.chance(3,3,4,5,1)
   
 
 # def test_yatzy_scores_50():
@@ -90,7 +90,7 @@ def test_largeStraight():
         assert 0 == Yatzy.large_straight(1,2,2,4,5)
   
 
-# def test_fullHouse():
-#         assert 18 == Yatzy.fullHouse(6,2,2,2,6)
-#         assert 0 == Yatzy.fullHouse(2,3,4,5,6)
+def test_fullHouse():
+        assert 18 == Yatzy.full_house(6,2,2,2,6)
+        assert 0 == Yatzy.full_house(2,3,4,5,6)
    
