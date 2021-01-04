@@ -1,230 +1,263 @@
 class Yatzy:
-
+    """Class Yatzy: This class consist of a serie of methods that let us to play the Yatzy's game
+    """
+    
+    #* Constructor Class Yatzy
+    def __init__(self, *dices):
+        self.dices = dices
+        
+    #* Static Method ones()
     @staticmethod
-    def chance(d1, d2, d3, d4, d5):
-        total = 0
-        total += d1
-        total += d2
-        total += d3
-        total += d4
-        total += d5
-        return total
+    def ones(*dices):
+        """ones(): scores the sum of the dice 1
 
-    @staticmethod
-    def yatzy(dice):
-        counts = [0]*(len(dice)+1)
-        for die in dice:
-            counts[die-1] += 1
-        for i in range(len(counts)):
-            if counts[i] == 5:
-                return 50
-        return 0
+        Returns:
+            int: sum of the dice 1
+        """
+        sum_ones = 0
+        
+        for dice in dices:
+            if dice == 1:
+                sum_ones += dice
+
+        return sum_ones
+    
     
     @staticmethod
-    def ones( d1,  d2,  d3,  d4,  d5):
-        sum = 0
-        if (d1 == 1):
-            sum += 1
-        if (d2 == 1):
-            sum += 1
-        if (d3 == 1):
-            sum += 1
-        if (d4 == 1):
-            sum += 1
-        if (d5 == 1): 
-            sum += 1
+    def twos(*dices):
+        """twos(): scores the sum of the dice 2
 
-        return sum
-    
+        Returns:
+            int: sum of the dice 2
+        """
+        sum_twos = 0
+        
+        for dice in dices:
+            if dice == 2:
+                sum_twos += dice
+        return sum_twos
 
     @staticmethod
-    def twos( d1,  d2,  d3,  d4,  d5):
-        sum = 0
-        if (d1 == 2):
-             sum += 2
-        if (d2 == 2):
-             sum += 2
-        if (d3 == 2):
-             sum += 2
-        if (d4 == 2):
-             sum += 2
-        if (d5 == 2):
-             sum += 2
-        return sum
-    
-    @staticmethod
-    def threes( d1,  d2,  d3,  d4,  d5):
-        s = 0
-        if (d1 == 3):
-             s += 3
-        if (d2 == 3):
-             s += 3
-        if (d3 == 3):
-             s += 3
-        if (d4 == 3):
-             s += 3
-        if (d5 == 3):
-             s += 3
-        return s
+    def threes(*dices):
+        """threes(): scores the sum of the dice 3
+
+        Returns:
+            int: sum of the dice 3
+        """
+        sum_three = 0
+        
+        for dice in dices:
+            if dice == 3:
+                sum_three += dice
+        return sum_three
     
 
-    def __init__(self, d1, d2, d3, d4, _5):
-        self.dice = [0]*5
-        self.dice[0] = d1
-        self.dice[1] = d2
-        self.dice[2] = d3
-        self.dice[3] = d4
-        self.dice[4] = _5
-    
     def fours(self):
-        sum = 0
-        for at in range(5):
-            if (self.dice[at] == 4): 
-                sum += 4
-        return sum
+        """fours(): scores the sum of the dice 4
+
+        Returns:
+            int: sum of the dice 4
+        """
+        sum_fours = 0
+        
+        for dice in self.dices:
+            if dice == 4:
+                sum_fours += dice
+        return sum_fours
+    
     
 
     def fives(self):
-        s = 0
-        i = 0
-        for i in range(len(self.dice)): 
-            if (self.dice[i] == 5):
-                s = s + 5
-        return s
+        """fives(): scores the sum of the dice 5
+
+        Returns:
+            int: sum of the dice 5
+        """
+        sum_fives = 0
+        
+        for dice in self.dices:
+            if dice == 5:
+                sum_fives += dice
+        return sum_fives
     
 
     def sixes(self):
-        sum = 0
-        for at in range(len(self.dice)): 
-            if (self.dice[at] == 6):
-                sum = sum + 6
-        return sum
+        """sixes(): scores the sum of the dice 6
+
+        Returns:
+            int: sum of the dice 6
+        """
+        sum_sixes = 0
+        
+        for dice in self.dices:
+            if dice == 6:
+                sum_sixes += dice
+        return sum_sixes
     
     @staticmethod
-    def score_pair( d1,  d2,  d3,  d4,  d5):
-        counts = [0]*6
-        counts[d1-1] += 1
-        counts[d2-1] += 1
-        counts[d3-1] += 1
-        counts[d4-1] += 1
-        counts[d5-1] += 1
-        at = 0
-        for at in range(6):
-            if (counts[6-at-1] == 2):
-                return (6-at)*2
-        return 0
-    
-    @staticmethod
-    def two_pair( d1,  d2,  d3,  d4,  d5):
-        counts = [0]*6
-        counts[d1-1] += 1
-        counts[d2-1] += 1
-        counts[d3-1] += 1
-        counts[d4-1] += 1
-        counts[d5-1] += 1
-        n = 0
+    def score_pair(*dices):
+        """score_pair(): scores the sum of the two highest matching dice
+
+        Returns:
+            int: sum of the two highest matching dice
+        """
         score = 0
-        for i in range(6):
-            if (counts[6-i-1] >= 2):
-                n = n+1
-                score += (6-i)
-                    
-        if (n == 2):
-            return score * 2
+        dices = sorted(dices, reverse=True)
+        
+        for dice in tuple(dices):
+            if dices.count(dice) == 2:
+                score = dice*2
+                break
+            else:
+                continue
+        
+        return score
+    
+
+    @staticmethod
+    def two_pair(*dices):
+        """two_pair(): If there are two pairs of dice with the same number, the
+        player scores the sum of these dice.
+
+        Returns:
+            int: scores the sum of these dice
+        """
+        dices = sorted(dices, reverse=True)
+        score = 0
+        total_two_pair = 4
+        for dice in tuple(dices):
+            if dices.count(dice) >= 2:
+                total_two_pair -= 1
+                if total_two_pair == 2 or total_two_pair == 0:
+                    score += dice*2
+        if total_two_pair >= 2:
+            score = 0
+
+        
+        return score
+        
+    @staticmethod
+    def three_of_a_kind(*dices):
+        """three_of_a_kind(): If there are three dice with the same number, the player scores the sum of these dice. 
+
+        Returns:
+            int: scores the sum of these dice
+        """
+        score = 0
+        dices = sorted(dices, reverse=True)
+        for dice in tuple(dices):
+            if dices.count(dice) >= 3:
+                score = dice*3
+                break
+            else:
+                continue
+                
+        return score
+    
+    
+    @staticmethod
+    def four_of_a_kind(*dices):
+        """four_of_a_kind(): If there are four dice with the same number, the player scores the sum of these dice. 
+
+        Returns:
+            int: scores the sum of these dice
+        """
+        score = 0
+        dices = sorted(dices, reverse=True)
+        for dice in tuple(dices):
+            if dices.count(dice) >= 4:
+                score = dice*4
+                break
+            else:
+                continue
+                
+        return score
+    
+    
+
+    @staticmethod
+    def small_straight(*dices):
+        """small_straight(): Let us read if the dices are a small_straight: 1,2,3,4,5
+
+        Returns:
+            int: scores the sum of these dice
+        """
+        straight = 15
+        score = 0
+        
+        for dice in dices:
+            score += dice
+        
+        if score == straight:
+            score = straight
         else:
-            return 0
-    
-    @staticmethod
-    def four_of_a_kind( _1,  _2,  d3,  d4,  d5):
-        tallies = [0]*6
-        tallies[_1-1] += 1
-        tallies[_2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-        for i in range(6):
-            if (tallies[i] >= 4):
-                return (i+1) * 4
-        return 0
+            score = 0
+        return score
     
 
     @staticmethod
-    def three_of_a_kind( d1,  d2,  d3,  d4,  d5):
-        t = [0]*6
-        t[d1-1] += 1
-        t[d2-1] += 1
-        t[d3-1] += 1
-        t[d4-1] += 1
-        t[d5-1] += 1
-        for i in range(6):
-            if (t[i] >= 3):
-                return (i+1) * 3
-        return 0
-    
+    def large_straight(*dices):
+        """large_straight(): Let us read if the dices are a large_straight: 2,3,4,5,6
 
-    @staticmethod
-    def smallStraight( d1,  d2,  d3,  d4,  d5):
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-        if (tallies[0] == 1 and
-            tallies[1] == 1 and
-            tallies[2] == 1 and
-            tallies[3] == 1 and
-            tallies[4] == 1):
-            return 15
-        return 0
-    
-
-    @staticmethod
-    def largeStraight( d1,  d2,  d3,  d4,  d5):
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-        if (tallies[1] == 1 and
-            tallies[2] == 1 and
-            tallies[3] == 1 and
-            tallies[4] == 1
-            and tallies[5] == 1):
-            return 20
-        return 0
-    
-
-    @staticmethod
-    def fullHouse( d1,  d2,  d3,  d4,  d5):
-        tallies = []
-        _2 = False
-        i = 0
-        _2_at = 0
-        _3 = False
-        _3_at = 0
-
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-
-        for i in range(6):
-            if (tallies[i] == 2): 
-                _2 = True
-                _2_at = i+1
-            
-
-        for i in range(6):
-            if (tallies[i] == 3): 
-                _3 = True
-                _3_at = i+1
-            
-
-        if (_2 and _3):
-            return _2_at * 2 + _3_at * 3
+        Returns:
+            int: scores the sum of these dice
+        """
+        straight = 20
+        score = 0
+        
+        for dice in dices:
+            score += dice
+        
+        if score == straight:
+            score = straight
         else:
-            return 0
+            score = 0
+        return score
+    
+
+    @staticmethod
+    def full_house(*dices):
+        """full_house(): Let us read If the dice are two of a kind and three of a kind, the player scores the sum of all the dice. 
+
+        Returns:
+            int: scores the sum of these dice
+        """
+        dices = sorted(dices, reverse=True)
+        score = 0
+        full_house = 5
+        for dice in tuple(dices):
+            if dices.count(dice) == 3 or dices.count(dice) == 2:
+                score += dice
+                full_house -= 1
+
+        if full_house >= 1:
+            score = 0
+            
+        return score
+    
+    @staticmethod
+    def chance(*dices):
+        """chance(): Let us read If The player scores the sum of all dice, no matter what they read.
+
+        Returns:
+            int: scores the sum of these dice
+        """
+        total = 0
+        for dice in dices:
+            total += dice
+        return total
+
+    @staticmethod
+    def yatzy(*dices):
+        """yatzy(): Let us read If all dice have the same number
+
+        Returns:
+            int: scores 50
+        """
+        score = 0
+        if dices.count(dices[0]) == 5:
+            score = 50
+        else:
+            return score
+
+        return score
