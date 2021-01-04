@@ -1,12 +1,16 @@
 class Yatzy:
     
+    def __init__(self, *dices):
+        self.dices = dices
+        
+        
     @staticmethod
     def ones(*dices):
         sum_ones = 0
         
         for dice in dices:
             if dice == 1:
-                sum_ones += 1
+                sum_ones += dice
 
         return sum_ones
     
@@ -17,7 +21,7 @@ class Yatzy:
         
         for dice in dices:
             if dice == 2:
-                sum_twos += 1
+                sum_twos += dice
         return sum_twos
 
     @staticmethod
@@ -26,35 +30,35 @@ class Yatzy:
         
         for dice in dices:
             if dice == 3:
-                sum_three += 1
+                sum_three += dice
         return sum_three
     
-    @staticmethod
-    def fours(*dices):
+
+    def fours(self):
         sum_fours = 0
         
-        for dice in dices:
+        for dice in self.dices:
             if dice == 4:
-                sum_fours += 1
+                sum_fours += dice
         return sum_fours
     
     
-    @staticmethod
-    def fives(*dices):
+
+    def fives(self):
         sum_fives = 0
         
-        for dice in dices:
+        for dice in self.dices:
             if dice == 5:
-                sum_fives += 1
+                sum_fives += dice
         return sum_fives
     
-    @staticmethod
-    def sixes(*dices):
+
+    def sixes(self):
         sum_sixes = 0
         
-        for dice in dices:
-            if dice == 5:
-                sum_sixes += 1
+        for dice in self.dices:
+            if dice == 6:
+                sum_sixes += dice
         return sum_sixes
     
     @staticmethod
